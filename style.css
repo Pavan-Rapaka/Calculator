@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f1c2c, #928dab, #0f2027);
+  background-size: 400% 400%;
+  animation: bgMove 20s ease infinite;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+.calculator {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.display {
+  height: 70px;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  color: #00fff7;
+  text-shadow: 0 0 5px #00fff7;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.btn {
+  font-size: 1.2rem;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.operator {
+  background-color: rgba(0, 255, 100, 0.25);
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.6), 0 0 10px rgba(0, 255, 100, 0.4);
+  color: #00ff80;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ff80, 0 0 10px #00ff80;
+}
+
+.operator:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.9), 0 0 15px rgba(0, 255, 100, 0.7);
+  transform: translateY(-3px);
+}
+
+.equal {
+  grid-column: span 2;
+  background-color: #ff0066;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+  box-shadow: 0 0 15px #ff0066, 0 0 25px #ff0066;
+  transition: all 0.2s ease;
+}
+
+.equal:hover {
+  box-shadow: 0 0 30px #ff3385, 0 0 40px #ff3385;
+  transform: translateY(-3px);
+}
+
+.action {
+  .action {
+    background-color: rgba(255, 255, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.7), 0 0 10px rgba(255, 255, 0, 0.5);
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+  }
+
+  .action:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.9), 0 0 15px rgba(255, 255, 0, 0.7);
+    transform: translateY(-3px);
+  }
+}
+
+.action:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.9);
+}
+
+@media screen and (max-width: 400px) {
+  .calculator {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .display {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}
